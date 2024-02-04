@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Сколько время</title>
+		<style>
+			body {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+				background: lightcoral;
+				transition: all 0.16s;
+			}
+
+			div {
+				text-align: center;
+			}
+
+			button {
+				border: 1px solid black;
+				padding: 16px 21px;
+				border-radius: 20px;
+				background: transparent;
+				cursor: pointer;
+			}
+
+			h1,
+			h3 {
+				animation: down 1s;
+			}
+
+			@keyframes down {
+				from {
+					transform: translateY(-50px);
+				}
+				to {
+					transform: translateY(0);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h3>Приветствую, Данил</h3>
+			<h1>Время 16:16:16</h1>
+			<button>сменить фон</button>
+		</div>
+		<script>
+			const name = prompt('как вас зовут')
+			document.querySelector('h3').textContent = ' Привет ,' + name
+			document.querySelector('h1').textContent =
+				' Сейчас ' + new Date().toLocaleTimeString()
+
+			setInterval(function () {
+				document.querySelector('h1').textContent =
+					' Сейчас ' + new Date().toLocaleTimeString()
+			}, 1000)
+
+			const colors = ['indigo', 'green', 'darkred', 'coral', 'orange']
+			let index = 0
+
+			document.querySelector('button').onclick = function () {
+				document.body.style.background = colors[index]
+				index++
+				if (index >= colors.length) index = 0
+			}
+		</script>
+	</body>
+</html>
